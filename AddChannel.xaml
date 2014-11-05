@@ -1,0 +1,14 @@
+﻿<Window x:Class="TackyRSS.AddChannel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add A Channel" Height="90" Width="300"    ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip">
+    <Grid>
+        <Button x:Name="loadBtn" IsDefault="True" Margin="53,55,186.6,0" VerticalAlignment="Top" Height="23" Content="Load" Click="loadBtn_Click"/>
+        <Button x:Name="cancelBtn" IsCancel="True" Content="Cancel" Margin="175,55,58.6,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="15,10,0,0" TextWrapping="Wrap" Text="Please Enter A Valid RSS Link" VerticalAlignment="Top"/>
+        <TextBox x:Name="input" HorizontalAlignment="Left" Height="23" Margin="15,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="256"/>
+    </Grid>
+</Window>

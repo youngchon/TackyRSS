@@ -1,0 +1,41 @@
+﻿<Window x:Class="TackyRSS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:bm="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        Title="MainWindow" Height="800" Width="1200"
+        x:Name="tackrss">
+
+    <Grid>
+        <Menu Margin="0,0,-0.4,737">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="menuLogin" Header="_Login" Click="menuLogin_Click" />
+                <MenuItem x:Name="menuLougout" Header="_Sign Out" Click="menuLougout_Click" />
+                <MenuItem x:Name="menuExit" Header="_Exit" Click="menuExit_Click" />
+            </MenuItem>
+            <MenuItem Header="_Channel">
+                <MenuItem x:Name="menuChannelAdd" Header="_Add A Channel" Click="menuChannelAdd_Click" />
+                <MenuItem x:Name="menuChannelRemove" Header="_Remove Selected Channel" Click="menuChannelRemove_Click" />
+                <MenuItem x:Name="menuChannelUpdate" Header="_Update Selected Frequency" Click="menuChannelUpdate_Click" />
+            </MenuItem>
+            <MenuItem Header="_Article">
+                <MenuItem x:Name="menuStoryMap" Header="_Pin Article!" Click="menuStoryMap_Click"  />
+                <MenuItem x:Name="menuStoryUnread" Header="_Mark Story As Unread" Click="menuStoryUnread_Click"  />
+            </MenuItem>
+        </Menu>
+        <ListBox x:Name="ChannelInformationBox" HorizontalAlignment="Center" Margin="50,318,910.6,0" VerticalAlignment="Top" Width="233" Height="90"/>
+        <ListBox x:Name="StoryTitlesBox" HorizontalAlignment="Left" Height="218" Margin="50,413,0,0" VerticalAlignment="Top" Width="233" SelectionChanged="StoryTitlesBox_SelectionChanged"/>
+        <TextBlock x:Name="StoryDescriptionBox" HorizontalAlignment="Left" Margin="359,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="73" Width="800"/>
+        
+        <ListBox x:Name="ChannelBox" HorizontalAlignment="Left" Height="240" Margin="50,77,0,0" VerticalAlignment="Top" Width="233" SelectionChanged="ChannelBox_SelectionChanged" />
+        <ProgressBar x:Name="loadProgressBar" HorizontalAlignment="Left" Height="10" Margin="10,752,0,0" VerticalAlignment="Top" Width="100"/>
+        <TabControl x:Name="wintab" HorizontalAlignment="Left" Height="600" Margin="359,153,0,0" VerticalAlignment="Top" Width="800" SelectedIndex="0">
+            <TabItem x:Name="bmmap" Header="Map">
+                <bm:Map x:Name="tackyMap" CredentialsProvider="AuWJ_GJP3aPOz_C92W_l2ClKwCcr-E6A-yF3m4TrpTiDQHkYBZ6-OnxmsJhsWlsC"
+                            Center="39.3683,-95.2734,0.0000" ZoomLevel="4.000" AnimationLevel="None" Mode="AerialWithLabels"/>
+            </TabItem>
+            <TabItem x:Name="wb" Header="Web Browser">
+                <WebBrowser x:Name="tackyrssbrowser" HorizontalAlignment="Left" VerticalAlignment="Top" Navigated="tackyrssbrowser_Navigated"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
